@@ -1,0 +1,72 @@
+[INFO]-[main]-[org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:578)]-[20160221 18:15:07]
+Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@27abe2cd: startup date [Sun Feb 21 18:15:07 CST 2016]; root of context hierarchy
+[INFO]-[main]-[org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)]-[20160221 18:15:08]
+Loading XML bean definitions from URL [file:/Users/pingping/Projects/IdeaProjects/cnblogs/spring_demo2/target/classes/spring.xml]
+[INFO]-[main]-[org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)]-[20160221 18:15:08]
+Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO]-[main]-[org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)]-[20160221 18:15:08]
+Loading XML bean definitions from class path resource [spring-task.xml]
+[INFO]-[main]-[org.springframework.core.io.support.PropertiesLoaderSupport.loadProperties(PropertiesLoaderSupport.java:172)]-[20160221 18:15:09]
+Loading properties file from class path resource [db.properties]
+[INFO]-[main]-[org.springframework.core.io.support.PropertiesLoaderSupport.loadProperties(PropertiesLoaderSupport.java:172)]-[20160221 18:15:09]
+Loading properties file from class path resource [log4j.properties]
+[INFO]-[main]-[org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.<init>(AutowiredAnnotationBeanPostProcessor.java:153)]-[20160221 18:15:09]
+JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO]-[main]-[org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:165)]-[20160221 18:15:09]
+Initializing ExecutorService 
+[INFO]-[main]-[org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization(PostProcessorRegistrationDelegate.java:328)]-[20160221 18:15:09]
+Bean 'executor' of type [class org.springframework.scheduling.config.TaskExecutorFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO]-[main]-[org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization(PostProcessorRegistrationDelegate.java:328)]-[20160221 18:15:09]
+Bean 'executor' of type [class org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO]-[main]-[org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:165)]-[20160221 18:15:09]
+Initializing ExecutorService  'scheduler'
+[INFO]-[main]-[org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization(PostProcessorRegistrationDelegate.java:328)]-[20160221 18:15:09]
+Bean 'scheduler' of type [class org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO]-[main]-[com.mchange.v2.log.MLog.<clinit>(MLog.java:80)]-[20160221 18:15:09]
+MLog clients using log4j logging.
+[INFO]-[main]-[com.mchange.v2.c3p0.C3P0Registry.banner(C3P0Registry.java:204)]-[20160221 18:15:09]
+Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+[INFO]-[main]-[org.quartz.impl.StdSchedulerFactory.instantiate(StdSchedulerFactory.java:1184)]-[20160221 18:15:10]
+Using default implementation for ThreadExecutor
+[INFO]-[main]-[org.quartz.core.SchedulerSignalerImpl.<init>(SchedulerSignalerImpl.java:61)]-[20160221 18:15:10]
+Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[INFO]-[main]-[org.quartz.core.QuartzScheduler.<init>(QuartzScheduler.java:240)]-[20160221 18:15:10]
+Quartz Scheduler v.2.2.1 created.
+[INFO]-[main]-[org.quartz.simpl.RAMJobStore.initialize(RAMJobStore.java:155)]-[20160221 18:15:10]
+RAMJobStore initialized.
+[INFO]-[main]-[org.quartz.core.QuartzScheduler.initialize(QuartzScheduler.java:305)]-[20160221 18:15:10]
+Scheduler meta-data: Quartz Scheduler (v2.2.1) 'org.springframework.scheduling.quartz.SchedulerFactoryBean#0' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[INFO]-[main]-[org.quartz.impl.StdSchedulerFactory.instantiate(StdSchedulerFactory.java:1339)]-[20160221 18:15:10]
+Quartz scheduler 'org.springframework.scheduling.quartz.SchedulerFactoryBean#0' initialized from an externally provided properties instance.
+[INFO]-[main]-[org.quartz.impl.StdSchedulerFactory.instantiate(StdSchedulerFactory.java:1343)]-[20160221 18:15:10]
+Quartz scheduler version: 2.2.1
+[INFO]-[main]-[org.quartz.core.QuartzScheduler.setJobFactory(QuartzScheduler.java:2311)]-[20160221 18:15:10]
+JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@2f67a4d3
+[INFO]-[main]-[org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:341)]-[20160221 18:15:10]
+Starting beans in phase 2147483647
+[INFO]-[main]-[org.springframework.scheduling.quartz.SchedulerFactoryBean.startScheduler(SchedulerFactoryBean.java:647)]-[20160221 18:15:10]
+Starting Quartz Scheduler now
+[INFO]-[main]-[org.quartz.core.QuartzScheduler.start(QuartzScheduler.java:575)]-[20160221 18:15:10]
+Scheduler org.springframework.scheduling.quartz.SchedulerFactoryBean#0_$_NON_CLUSTERED started.
+[INFO]-[main]-[org.eclipse.jetty.util.log.Log.initialized(Log.java:186)]-[20160221 18:15:10]
+Logging initialized @3938ms
+[INFO]-[main]-[org.eclipse.jetty.server.Server.doStart(Server.java:345)]-[20160221 18:15:10]
+jetty-9.3.7.v20160115
+[INFO]-[main]-[org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:775)]-[20160221 18:15:10]
+Started o.e.j.s.ServletContextHandler@38aa816f{/,null,AVAILABLE}
+[INFO]-[main]-[org.eclipse.jetty.server.AbstractConnector.doStart(AbstractConnector.java:270)]-[20160221 18:15:10]
+Started ServerConnector@3bf3f1ec{HTTP/1.1,[http/1.1]}{0.0.0.0:8080}
+[INFO]-[main]-[org.eclipse.jetty.server.Server.doStart(Server.java:397)]-[20160221 18:15:10]
+Started @4185ms
+[INFO]-[qtp1520387953-27]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager(AbstractPoolBackedDataSource.java:462)]-[20160221 18:15:32]
+Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 5, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> true, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge13r9fx7whb1qc5s5z|3857f613, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge13r9fx7whb1qc5s5z|3857f613, idleConnectionTestPeriod -> 60, initialPoolSize -> 20, jdbcUrl -> jdbc:mysql://localhost:3306/spring_demo?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 60, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 100, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+[INFO]-[qtp1520387953-27]-[com.everSeeker.service.impl.UserServiceImpl.getUserByUsername(UserServiceImpl.java:27)]-[20160221 18:15:33]
+All info about ppp: 
+User [id=2, username=ppp, password=1234, score=5, rankding=4, essayCount=0]

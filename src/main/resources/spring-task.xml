@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/task
+                           http://www.springframework.org/schema/task/spring-task-3.0.xsd"
+       default-lazy-init="false">
+
+       <!--开启定时任务的2种方法，（1）通过spring－task，采用@Scheduled注解方式，配置简单，使用灵活方便；
+                               （2）通过quartz，配置稍微复杂，功能强大 -->
+       <!--参考文档： http://sishuok.com/forum/posts/list/7260.html-->
+
+       <!--方法一：-->
+       <!--开启task:annotation-driven，spring可以通过注解@Scheduled来开启任务-->
+       <task:executor id="executor" pool-size="5"/>
+       <task:scheduler id="scheduler" pool-size="10"/>
+       <task:annotation-driven executor="executor" scheduler="scheduler"/>
+
+       <!--方法二：-->
+       <!--配置作业类-->
+       <bean id="quartzTask" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+              <property name="targetObject">
+                     <bean class="com.everSeeker.task.QuartzTask"/>
+              </property>
+              <property name="targetMethod" value="rankingByScore"/>
+              <property name="concurrent" value="false"/>
+       </bean>
+       <!--配置触发器-->
+       <!--关于cronExpression, 请参考： http://www.cnblogs.com/yaowen/p/3779284.html-->
+       <bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+              <property name="jobDetail" ref="quartzTask"/>
+              <!--每隔10s执行一次-->
+              <property name="cronExpression" value="0/10 * * * * ?"/>
+       </bean>
+       <!--配置调度工厂-->
+       <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+              <property name="triggers">
+                     <list>
+                            <ref bean="cronTrigger"/>
+                     </list>
+              </property>
+       </bean>
+
+</beans>

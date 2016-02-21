@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.everSeeker.dao.UserDao">
+    <resultMap id="ResultMapUser" type="com.everSeeker.entity.User">
+        <id column="id" property="id"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="score" property="score"/>
+        <result column="ranking" property="ranking"/>
+        <result column="essay_count" property="essayCount"/>
+    </resultMap>
+
+    <insert id="addUser" parameterType="User">
+        INSERT INTO user(username, password, score, ranking, essay_count) VALUES(#{user.username}, #{user.password}, #{user.score}, #{user.ranking}, #{user.essayCount})
+    </insert>
+
+    <select id="getUserById" parameterType="int" resultMap="ResultMapUser">
+        SELECT * FROM user WHERE id=#{id}
+    </select>
+
+    <select id="getUserByUsername" parameterType="String" resultMap="ResultMapUser">
+        SELECT * FROM user where username=#{username}
+    </select>
+
+    <update id="updateUser" parameterType="User">
+        UPDATE user SET username=#{username}, password=#{password}, score=#{score}, ranking=#{ranking}, essay_count=#{essayCount} where id=#{id}
+    </update>
+
+    <!--在mysql中执行多条语句，可以采用存储过程，如{call proc()}；也可以通过连接数据库时设置allowMultiQueries=true来实现-->
+    <update id="rankingByScore">
+        --         { call proc() }
+        SET @row=0;
+        UPDATE user SET ranking=(@row:=@row+1) ORDER BY score DESC;
+    </update>
+</mapper>

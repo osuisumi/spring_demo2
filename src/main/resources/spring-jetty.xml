@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="jetty_server" class="org.eclipse.jetty.server.Server" init-method="start" destroy-method="stop">
+
+        <!--<property name="threadPool">-->
+            <!--<bean id="defaultThreadPool" class="org.eclipse.jetty.util.thread.QueuedThreadPool">-->
+                <!--<property name="minThreads" value="10"/>-->
+                <!--<property name="maxThreads" value="100"/>-->
+            <!--</bean>-->
+        <!--</property>-->
+
+        <property name="connectors">
+            <list>
+                <bean id="Connector" class="org.eclipse.jetty.server.ServerConnector">
+                    <constructor-arg name="server"><ref bean="jetty_server"/></constructor-arg>
+                    <property name="port" value="8080"/>
+                </bean>
+            </list>
+        </property>
+
+        <property name="handler">
+            <bean id="handlers" class="org.eclipse.jetty.server.handler.HandlerList">
+                <property name="handlers">
+                    <list>
+                        <bean class="com.everSeeker.jetty.MyHandler"/>
+                        <!--<bean class="com.everSeeker.jetty.RestfulHandler"/>-->
+                        <bean class="org.eclipse.jetty.server.handler.DefaultHandler"/>
+                    </list>
+                </property>
+            </bean>
+        </property>
+
+    </bean>
+
+</beans>
